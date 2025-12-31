@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+/* FlyonUI */
+@plugin "flyonui";
+@import "flyonui/variants.css";
+@import "flyonui/components.css";
+@import "style\style.css";
+@theme {
+  --font-diodrum: "DiodrumArabic", sans-serif;
+}
