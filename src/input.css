@@ -3,6 +3,7 @@
 @plugin "flyonui";
 @import "flyonui/variants.css";
 @import "../style/style.css";
+/* Splide */
 
 /* Custom styles */
 @layer components {

@@ -2,11 +2,7 @@
   font-family: "DiodrumArabic", sans-serif;
 }
 body {
-  background: linear-gradient(
-    1deg,
-    #ebeaf3 0.75%,
-    rgba(197, 190, 255, 0.6) 99.24%
-  );
+  background: #ebeaf3;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -48,5 +44,12 @@ body {
   transition: 0.2s ease-in-out;
 }
 .card:hover {
+  transform: translateY(2%);
+}
+
+.splide ul li img {
+  cursor: pointer;
+}
+.splide ul li img:hover {
   transform: translateY(2%);
 }
