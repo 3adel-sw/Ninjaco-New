@@ -53,3 +53,11 @@ body {
 .splide ul li img:hover {
   transform: translateY(2%);
 }
+
+.videos .container .grid img {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.videos .container .grid img:hover {
+  transform: translateY(2%);
+}

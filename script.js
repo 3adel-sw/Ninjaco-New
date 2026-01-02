@@ -12,6 +12,7 @@ toggle.addEventListener("click", () => {
     root.classList.contains("dark") ? "dark" : "light"
   );
 });
+
 // Splide
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -33,3 +34,5 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   }).mount();
 });
+
+// Splide Mobile Feedback

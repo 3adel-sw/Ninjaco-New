@@ -185,7 +185,7 @@
       <!-- Start Section About  -->
       <section
         id="about"
-        class="about bg-[#CECAFF] w-full py-14 md:py20 overflow-hidden relative"
+        class="about bg-[#CECAFF] w-full py-14 md:py-20 overflow-hidden relative"
       >
         <img
           src="assets/img/hand.svg"
@@ -279,12 +279,16 @@
             </div>
           </div>
         </div>
-        <img src="assets/img/light.svg" class="absolute bottom-[15rem] left-4"
-        alt="ligt icon" loading="lazy />
+        <img
+          src="assets/img/light.svg"
+          class="absolute bottom-[15rem] left-4"
+          alt="ligt icon"
+          loading="lazy"
+        />
       </section>
       <!-- End Section About  -->
       <!-- Start Section Skills  -->
-      <section class="skill py-12 md:py20 bg-[#FBFBFB]">
+      <section id="skills" class="skills py-12 md:py-20 bg-white relative">
         <div class="container">
           <div class="text-center my-6">
             <h1 class="text-center md:text-[30px] text-[18px]">
@@ -436,13 +440,210 @@
       </section>
       <!-- End Section Skills  -->
       <!-- Start Section Videos  -->
-      <section class="videos"></section>
+      <section class="videos relative bg-[#E7E5FF]">
+        <img
+          src="assets/img/top.webp"
+          class="absolute w-full md:block hidden top-[-9rem] right-0"
+          alt="background Top"
+        />
+        <div class="container md:m-20 my-8">
+          <div class="text-center relative md:py20">
+            <h1 class="text-center font-bold md:text-[30px] text-[18px]">
+              في نينجاكو، التعلم لا يتوقف عند النظر, بل يتحول إلى مشاريع حقيقية
+              يفتخر بها أطفالنا
+            </h1>
+            <p class="text-base md:text-2xl my-4">
+              تعرف على أبرز إنجازات أبطال نينجاكو… أطفال بدأوا من الصفر ووصلوا
+              للاحتراف.
+            </p>
+          </div>
+          <!-- Cards Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="rounded-2xl relative z-30 shadow text-center">
+              <img
+                src="assets/img/boy-card.webp"
+                alt="طالب نينجاكو أحمد"
+                class="mx-auto any-img rounded-xl w-full"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-2xl relative z-30 shadow text-center">
+              <img
+                src="assets/img/boy-card.webp"
+                alt="طالب نينجاكو سارة"
+                class="mx-auto rounded-xl w-full any-img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rounded-2xl relative z-30 shadow text-center">
+              <img
+                src="assets/img/boy-card.webp"
+                alt="طالب نينجاكو محمد"
+                class="mx-auto rounded-xl w-full any-img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Card 4 -->
+            <div class="rounded-2xl relative z-30 shadow text-center">
+              <img
+                src="assets/img/boy-card.webp"
+                alt="طالب نينجاكو ياسمين"
+                class="mx-auto rounded-xl w-full any-img"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <!-- Background Wave -->
+          <img
+            src="assets/img/bottom.webp"
+            class="absolute bottom-[-9rem] z-10 left-0 w-full md:block hidden overflow-hidden"
+            alt=" bottom Background Wave"
+          />
+        </div>
+      </section>
       <!-- End Section Videos  -->
       <!-- Start Section features  -->
-      <section class="features"></section>
+      <section id="features" class="features bg-white relative">
+        <div class="container md:m-20 z-20 my-8">
+          <div
+            class="text-features p-6 md:py-20 py-6 relative flex flex-col items-center text-center justify-center gap-6"
+          >
+            <h1 class="text-center md:text-[29px] text-[18px]">
+              كل مدرب في نينجاكو مختار بعناية،
+              <span>مدرب على أعلى مستوى</span>
+              ، ليضمن لطفلك تجربة تعليمية متميزة وآمنة.
+            </h1>
+          </div>
+          <!-- Icons Grid -->
+          <div
+            class="icons-features flex flex-nowrap justify-center max-w-5xl mx-auto overflow-x-auto"
+          >
+            <!-- Card -->
+            <div>
+              <img
+                src="assets/img/trainee1.webp"
+                loading="lazy"
+                alt="trainee2"
+                class="w-full"
+              />
+              <p
+                class="text-[12px] md:text-lg font-bold text-center text-[#342E84]"
+              >
+                أختيار المدربين بعناية فائقة
+              </p>
+            </div>
+
+            <div>
+              <img
+                src="assets/img/trainee2.webp"
+                loading="lazy"
+                alt="trainee2"
+                class="w-full"
+              />
+              <p
+                class="text-[12px] md:text-lg font-bold text-center text-[#342E84]"
+              >
+                أساليب تعليم حديثة وذكية
+              </p>
+            </div>
+
+            <div>
+              <img
+                src="assets/img/trainee3.webp"
+                loading="lazy"
+                alt="trainee3"
+                class="w-full"
+              />
+              <p
+                class="text-[12px] md:text-lg font-bold text-center text-[#342E84]"
+              >
+                تقييم دوري لمستوى الطالب
+              </p>
+            </div>
+
+            <div>
+              <img
+                src="assets/img/trainee4.webp"
+                loading="lazy"
+                alt="trainee4"
+                class="w-full"
+              />
+              <p
+                class="text-[12px] md:text-lg font-bold text-center text-[#342E84]"
+              >
+                اختيار المدرسين بعناية فائقة
+              </p>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex justify-center py-6 items-center align-center">
+            <a
+              class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+            >
+              أنضم الي نينجاكو الان
+              <img
+                src="assets/img/ArrowLeft.svg"
+                class="bg-[var(--bg-rw)] rounded-full row-img"
+                alt=" arrow button"
+                loading="lazy"
+            /></a>
+          </div>
+        </div>
+      </section>
       <!-- End Section features  -->
       <!-- Start Section FeedBack  -->
-      <section class="feedBack"></section>
+      <section class="feedBack">
+        <div class="container md:m-20 z-20 my-8">
+          <div
+            class="text-features p-6 py-28 relative flex flex-col items-center text-center justify-center gap-6"
+          >
+            <h1 class="text-center md:text-[29px] text-[18px]">
+              كل مدرب في نينجاكو مختار بعناية،
+              <span>مدرب على أعلى مستوى</span>
+              ، ليضمن لطفلك تجربة تعليمية متميزة وآمنة.
+            </h1>
+          </div>
+          <!-- Cards Wrapper Video  -->
+          <div
+            class="flex gap-4 overflow-x-auto scroll-smooth md:grid md:grid-cols-3 md:overflow-visible no-scrollbar"
+            id="cards-wrapper-video-pc"
+          >
+            <!-- Left Card -->
+            <div class="min-w-[80%] md:min-w-0 p-4 rounded-xl">
+              <img
+                src="assets/img/feedback-sara-left.webp"
+                loading="lazy"
+                alt="Feedback from Sara"
+              />
+            </div>
+
+            <!-- Center Card (Higher) -->
+            <div class="min-w-[80%] md:min-w-0 p-4 rounded-xl">
+              <img
+                src="assets/img/Video-feetback.webp"
+                loading="lazy"
+                alt="Video Feedback"
+              />
+            </div>
+
+            <!-- Right Card -->
+            <div class="min-w-[80%] md:min-w-0 p-4 rounded-xl">
+              <img
+                src="assets/img/feedback-sara-right.webp"
+                loading="lazy"
+                alt=" Video Feedback"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- End Section FeedBack  -->
       <!-- Start Section Lists  -->
       <section class="lists"></section>
