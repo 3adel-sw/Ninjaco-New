@@ -36,3 +36,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Splide Mobile Feedback
+document.addEventListener("DOMContentLoaded", function () {
+  new Splide("#splideFeedback", {
+    type: "loop",
+    autoWidth: true,
+    gap: "1rem",
+    direction: "rtl",
+    pagination: false,
+    arrows: false,
+
+    breakpoints: {
+      768: {
+        gap: "0.75rem",
+      },
+      480: {
+        gap: "0.5rem",
+      },
+    },
+  }).mount();
+});

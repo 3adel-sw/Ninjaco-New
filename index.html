@@ -424,6 +424,7 @@
               </ul>
             </div>
           </div>
+          <!-- Botton -->
           <div class="flex justify-center py-6 items-center align-center">
             <a
               class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
@@ -509,7 +510,10 @@
       </section>
       <!-- End Section Videos  -->
       <!-- Start Section features  -->
-      <section id="features" class="features bg-white relative">
+      <section
+        id="features"
+        class="features relative overflow-hidden bg-white relative"
+      >
         <div class="container md:m-20 z-20 my-8">
           <div
             class="text-features p-6 md:py-20 py-6 relative flex flex-col items-center text-center justify-center gap-6"
@@ -599,10 +603,15 @@
       </section>
       <!-- End Section features  -->
       <!-- Start Section FeedBack  -->
-      <section class="feedBack">
-        <div class="container md:m-20 z-20 my-8">
+      <section class="feedBack relative bg-[#F3F2FB]">
+        <img
+          src="assets/img/top-feedback.webp"
+          class="absolute w-full top-[-3rem] md:block hidden right-0"
+          alt="background Top"
+        />
+        <div class="container">
           <div
-            class="text-features p-6 py-28 relative flex flex-col items-center text-center justify-center gap-6"
+            class="text-features p-6 relative flex flex-col items-center text-center justify-center gap-6"
           >
             <h1 class="text-center md:text-[29px] text-[18px]">
               كل مدرب في نينجاكو مختار بعناية،
@@ -612,7 +621,7 @@
           </div>
           <!-- Cards Wrapper Video  -->
           <div
-            class="flex gap-4 overflow-x-auto scroll-smooth md:grid md:grid-cols-3 md:overflow-visible no-scrollbar"
+            class="flex px-4 gap-4 hidden md:block overflow-x-auto scroll-smooth md:grid md:grid-cols-3 md:overflow-visible no-scrollbar"
             id="cards-wrapper-video-pc"
           >
             <!-- Left Card -->
@@ -641,6 +650,55 @@
                 alt=" Video Feedback"
               />
             </div>
+          </div>
+          <!-- Cards Mobile Video  -->
+          <!-- splide -->
+          <div id="splideFeedback" class="splide md:hidden block">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide rotate-350">
+                  <img
+                    src="assets/img/feedback-sara-left.webp"
+                    loading="lazy"
+                    alt="تعلم عملي بالمشاريع"
+                  />
+                </li>
+                <li class="splide__slide">
+                  <img
+                    src="assets/img/Video-feetback.webp"
+                    loading="lazy"
+                    alt="تعلم عملي بالمشاريع"
+                  />
+                </li>
+                <li class="splide__slide rotate-5">
+                  <img
+                    src="assets/img/feedback-sara-right.webp"
+                    loading="lazy"
+                    alt="تعلم عملي بالمشاريع"
+                  />
+                </li>
+                <li class="splide__slide rotate-350">
+                  <img
+                    src="assets/img/feedback-sara-left.webp"
+                    loading="lazy"
+                    alt="تعلم عملي بالمشاريع"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Botton -->
+          <div class="flex justify-center py-6 items-center align-center">
+            <a
+              class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+            >
+              أبدأ رحلته الرقمية اليوم
+              <img
+                src="assets/img/ArrowLeft.svg"
+                class="bg-[var(--bg-rw)] rounded-full row-img"
+                alt=" arrow button"
+                loading="lazy"
+            /></a>
           </div>
         </div>
       </section>
