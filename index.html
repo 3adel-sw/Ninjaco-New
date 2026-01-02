@@ -19,8 +19,6 @@
     <meta property="og:locale:alternate" content="en_US" />
     <!-- Talwind css -->
     <link rel="stylesheet" href="src/output.css" />
-    <!-- Style Css -->
-    <link rel="stylesheet" href="style/style.css" />
     <!-- AlpineJs  -->
     <script
       defer
@@ -29,14 +27,241 @@
   </head>
   <body>
     <!-- start Header  -->
-    <header></header>
+    <header class="w-full py-6">
+      <div
+        class="relative mx-6 flex items-center justify-between rounded-full px-6 py-3"
+        style="
+          background-color: var(--bg-card);
+          border: 1px solid var(--border);
+        "
+      >
+        <!-- Logo -->
+        <img
+          src="assets/img/logo.svg"
+          class="w-[91px] h-[32px] md:w-[188px] md:h-[66px]"
+          alt="logo"
+        />
+
+        <!-- Nav -->
+        <nav
+          class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block naviltems"
+        >
+          <ul class="flex gap-6">
+            <li>
+              <a href="#">الرئيسية</a>
+            </li>
+            <li>
+              <a href="#">الدورات</a>
+            </li>
+            <li>
+              <a href="#">المسارات</a>
+            </li>
+            <li>
+              <a href="#">تواصل معنا</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="btn btn-outline btn-sm rounded-full">
+            🌙
+          </button>
+          <!-- CTA -->
+          <a
+            class="hidden md:flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm"
+            >انضم الي نينجاكو
+            <img
+              src="assets/img/ArrowLeft.svg"
+              class="bg-[var(--bg-rw)] rounded-full row-img"
+              alt=" arrow button"
+          /></a>
+        </div>
+      </div>
+    </header>
+
     <!-- End Header  -->
     <main>
       <!-- Start Section Hero  -->
-      <search class="hero"></search>
+      <section id=" hero" class="hero relative">
+        <img
+          src="assets/img/programming-user-code--Streamline-Freehand.svg"
+          class="absolute -top-12 right-4"
+          alt=""
+        />
+        <div class="container md:m-20 my-8">
+          <div
+            class="flex md:flex-row flex-col items-center justify-between align-center"
+          >
+            <div class="text-right">
+              <h1>
+                من
+                <span class="text-[#5f56d1]"> طفل عادي </span>
+                … إلى
+                <span class="text-[#FDC31B]">نينجا رقمي </span>
+                بخبرات خارقة!
+              </h1>
+              <h2>
+                ابدأ مع نينجاكو رحلة تكنولوجية تغيّر طريقة تفكير ابنك وتنمي
+                مهاراته الرقمية للأبد.
+              </h2>
+              <div class="items-star flex flex-col">
+                <span class="flex flex-row gap-4">
+                  <img
+                    src="assets/img/Star-hero.svg"
+                    alt="start hero"
+                    loading="lazy"
+                  />
+                  <p>حصص أونلاين مباشرة مع مدربين نينجا محترفين</p>
+                </span>
+                <span class="flex flex-row gap-4">
+                  <img
+                    src="assets/img/Star-hero.svg"
+                    alt="start hero"
+                    loading="lazy "
+                  />
+                  <p>تعلم البرمجة والمهارات الرقمية بطريقة ممتعة</p>
+                </span>
+                <span class="flex flex-row gap-4">
+                  <img
+                    src="assets/img/Star-hero.svg"
+                    alt="start hero"
+                    loading="lazy"
+                  />
+                  <p>طور ذكاءه وإبداعه استعداداً لمستقبل التكنولوجيا</p>
+                </span>
+              </div>
+              <div class="flex flex-row gap-3">
+                <a
+                  class="flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm"
+                >
+                  أبدأ رحلته الرقمية اليوم
+                  <img
+                    src="assets/img/ArrowLeft.svg"
+                    class="bg-[var(--bg-rw)] rounded-full row-img"
+                    alt=" arrow button"
+                /></a>
+                <a
+                  class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+                >
+                  سعر باقات نينجاكو
+                  <img
+                    src="assets/img/ArrowLeft.svg"
+                    class="bg-[var(--bg-rw)] rounded-full row-img"
+                    alt=" arrow button"
+                /></a>
+              </div>
+            </div>
+
+            <div class="image-left">
+              <img
+                src="assets/img/ninja-boy.webp"
+                class="bg-cover"
+                alt="ninjaco"
+              />
+            </div>
+          </div>
+        </div>
+        <img
+          src="assets/img/android-logo-62.svg"
+          class="absolute bottom-[-4rem] left-5"
+          alt=""
+        />
+      </section>
       <!-- End Section Hero  -->
       <!-- Start Section About  -->
-      <section class="about"></section>
+      <section
+        id="about"
+        class="about bg-[#CECAFF] w-full py-20 overflow-hidden"
+      >
+        <div class="container text-center">
+          <div
+            class="text-about flex flex-col items-center text-center justify-center gap-6"
+          >
+            <h1 class="text-center md:text-[36px] text-[20px]">
+              نينجاكو … أكاديمية تكنولوجية تصنع <span>نينجا المستقبل!</span>
+            </h1>
+            <p class="md:text-2xl text-base text-center md:w-[869px]">
+              هنا، يكتسب طفلك مهارات البرمجة، التصميم، والإبداع داخل تجربة
+              تفاعلية ومليئة بالمغامرة… التعلم عندنا مش حفظ، بل تجربة حقيقية
+              تصقل الذكاء والخيال.
+            </p>
+          </div>
+          <div
+            class="cards-about grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 pt-6 my-8"
+          >
+            <div class="card">
+              <div class="img flex items-center justify-center">
+                <img
+                  src="assets/img/codeing-about.webp"
+                  alt="تعلم البرمجة بالمشاريع"
+                  class="block any-img"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+                تعلّم بالمشاريع، لا بالمشاهدة
+              </p>
+              <p class="mt-2 text-sm">
+                ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
+                باستخدام أدوات حديثة تناسب عمره.
+              </p>
+            </div>
+            <div class="card">
+              <div class="img flex items-center justify-center">
+                <img
+                  src="assets/img/codeing-about.webp"
+                  alt="تعلم البرمجة بالمشاريع"
+                  class="block any-img"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+                تعلّم بالمشاريع، لا بالمشاهدة
+              </p>
+              <p class="mt-2 text-sm">
+                ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
+                باستخدام أدوات حديثة تناسب عمره.
+              </p>
+            </div>
+            <div class="card">
+              <div class="flex items-center justify-center">
+                <img
+                  src="assets/img/codeing-about.webp"
+                  alt="تعلم البرمجة بالمشاريع"
+                  class="block any-img"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+                تعلّم بالمشاريع، لا بالمشاهدة
+              </p>
+              <p class="mt-2 text-sm">
+                ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
+                باستخدام أدوات حديثة تناسب عمره.
+              </p>
+            </div>
+            <div class="card">
+              <div class="img flex items-center justify-center">
+                <img
+                  src="assets/img/codeing-about.webp"
+                  alt="تعلم البرمجة بالمشاريع"
+                  class="block any-img"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+                تعلّم بالمشاريع، لا بالمشاهدة
+              </p>
+              <p class="mt-2 text-sm">
+                ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
+                باستخدام أدوات حديثة تناسب عمره.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- End Section About  -->
       <!-- Start Section Skills  -->
       <section class="skills"></section>

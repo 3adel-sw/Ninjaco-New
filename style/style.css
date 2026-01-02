@@ -1,3 +1,52 @@
 * {
   font-family: "DiodrumArabic", sans-serif;
 }
+body {
+  background: linear-gradient(
+    1deg,
+    #ebeaf3 0.75%,
+    rgba(197, 190, 255, 0.6) 99.24%
+  );
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+:root {
+  --text-color: #342e84;
+  --primary: rgb(88, 40, 244);
+  --primary-hover: rgb(69, 26, 200);
+  --bg-rw: #342e84;
+}
+.button {
+  padding: 23px 28px;
+  border-radius: 180px;
+  display: flex;
+  align-items: center;
+}
+.button-white {
+  background: #fff;
+}
+.button-pr {
+  border: 1px solid #342e84;
+  background: linear-gradient(180deg, #342e84 0%, #6b63c8 108.89%);
+  color: #fff;
+}
+
+.row-img {
+  margin: 0;
+  padding: 0;
+  display: block;
+  transform: translateX(-1rem);
+}
+.card {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.card:hover {
+  transform: translateY(2%);
+}

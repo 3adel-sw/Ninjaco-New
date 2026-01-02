@@ -1,10 +1,96 @@
 @import "tailwindcss";
-@plugin "@iconify/tailwind4";
 /* FlyonUI */
 @plugin "flyonui";
 @import "flyonui/variants.css";
-@import "flyonui/components.css";
-@import "style\style.css";
-@theme {
-  --font-diodrum: "DiodrumArabic", sans-serif;
+@import "../style/style.css";
+
+/* Custom styles */
+@layer components {
+  .naviltems > ul > li > a {
+    @apply flex
+    hover:text-gray-200
+    hover:bg-[var(--primary)]
+      duration-300
+      rounded-lg
+      p-2
+      items-center
+      text-[21px]
+      font-normal
+      mx-3
+      text-[var(--text-color)];
+  }
+  /* H1 */
+  h1 {
+    @apply md:text-[36px] text-[22px] font-bold;
+    color: #272363;
+    line-height: normal;
+  }
+
+  h1 span:first-child {
+    color: #5f56d1;
+  }
+
+  h1 span:last-child {
+    color: #fdc31b;
+  }
+
+  /* H2 */
+  h2 {
+    @apply md:text-[21px] text-base font-bold md:text-right text-center my-8 text-[#272363];
+  }
+  .items-star {
+    @apply text-[#272363]
+      leading-[3]
+      text-right
+      md:text-[20px]
+      text-base
+      font-medium
+      my-2;
+  }
+}
+
+/* =========================
+   Theme
+========================= */
+@layer theme {
+  @theme {
+    --bg-main: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #342e84;
+    --text-muted: #6b7280;
+    --primary: #4f46e5;
+    --border: #e5e7eb;
+  }
+}
+
+/* =========================
+   Dark Mode
+========================= */
+.dark {
+  --bg-main: #0f172a;
+  --bg-card: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --primary: #6366f1;
+  --border: #1e293b;
+}
+
+/* =========================
+   Navbar links
+========================= */
+@layer components {
+  .nav-link {
+    @apply px-3
+      py-2
+      rounded-lg
+      font-medium
+      transition
+      duration-300;
+    color: var(--text-main);
+  }
+
+  .nav-link:hover {
+    background-color: var(--primary);
+    color: white;
+  }
 }
