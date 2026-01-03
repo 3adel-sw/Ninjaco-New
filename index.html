@@ -8,27 +8,49 @@
     <meta http-equiv="Content-Language" content="ar, en" />
     <meta name="language" content="ar, en" />
     <link rel="icon" type="image/x-icon" href="assets/img/logo.svg" />
-    <meta
-      name="description"
-      content="نينجاكو منصة تعليمية متخصصة في البرمجة والتقنية، بتقدّم مسارات تعليمية عملية تساعدك تبدأ وتطور مستقبلك المهني."
-    />
+    <meta name="description" content="نينجاكو منصة تعليمية متخصصة في البرمجة والتقنية، بتقدّم مسارات تعليمية عملية تساعدك تبدأ وتطور مستقبلك المهني." />
     <meta name="robots" content="index, follow" />
-    <meta property="og:type" content="website" />
     <!-- Open Graph for social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ninjaco | تعلم البرمجة من الصفر للاحتراف" />
+    <meta property="og:description" content="منصة تعليمية متخصصة في البرمجة والتقنية" />
     <meta property="og:locale" content="ar_AR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <!-- Talwind css -->
+    <!-- Performance: Preconnect to CDN domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="src/output.css" />
-    <!-- splide -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    />
-    <!-- AlpineJs  -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+    <!-- Splide CSS with preload -->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <!-- AlpineJs with defer for non-blocking -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Ninjaco",
+      "description": "منصة تعليمية متخصصة في البرمجة والتقنية للأطفال",
+      "url": "https://ninjaco.com",
+      "logo": "https://ninjaco.com/assets/img/logo.svg",
+      "sameAs": [
+        "https://www.facebook.com/ninjaco",
+        "https://www.instagram.com/ninjaco",
+        "https://twitter.com/ninjaco"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "info@ninjaco.com",
+        "telephone": "+20123456789"
+      },
+      "areaServed": "EG",
+      "courseCount": 10,
+      "priceRange": "$$"
+    }
+    </script>
   </head>
   <body>
     <!-- start Header  -->
@@ -67,11 +89,11 @@
           </ul>
         </nav>
 
-        <!-- Actions Desktop -->
+    <!-- Actions Desktop -->
     <div class="hidden md:flex items-center gap-3">
     <!-- Theme Toggle -->
-      <button id="theme-toggle" class="btn btn-outline btn-sm rounded-full"> 🌙 </button>
-    <a class=" hidden md:flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm" >
+      <button id="theme-toggle" class="btn btn-outline btn-sm rounded-full" aria-label="تبديل الوضع الليلي والنهاري" title="تبديل الوضع">🌙</button>
+    <a class="hidden md:flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm" href="#" aria-label="انضم إلى نينجاكو الآن">
       انضم الي نينجاكو 
     <img src="assets/img/ArrowLeft.svg" class="bg-[var(--bg-rw)] rounded-full row-img" alt=" arrow button" loading="lazy" /></a>
     </div>
@@ -82,8 +104,10 @@
     <button
       @click="open = !open"
       class="flex md:hidden items-center justify-center w-10 h-10 rounded-full border"
+      aria-label="فتح القائمة"
+      :aria-expanded="open"
     >
-      <span x-text="open ? '❌' : '☰'"></span>
+      <span x-text="open ? '❌' : '☰'" aria-hidden="true"></span>
     </button>
   </div>
 
@@ -102,10 +126,10 @@
            overflow-hidden rounded-4xl shadow-lg font-semibold text-lg" 
   >
     <ul class="flex flex-col gap-4 p-6 text-center">
-      <li><a href="#" @click="open = false">الرئيسية</a></li>
-      <li><a href="#" @click="open = false">الدورات</a></li>
-      <li><a href="#" @click="open = false">المسارات</a></li>
-      <li><a href="#" @click="open = false">تواصل معنا</a></li>
+      <li><a href="#hero" @click="open = false">عن نينجاكو</a></li>
+      <li><a href="#about" @click="open = false">مساراتنا الدراسية</a></li>
+      <li><a href="#lists" @click="open = false">باقات نينجاكو</a></li>
+      <li><a href="#change" @click="open = false"> الاسئلة الشائعة</a></li>
     </ul>
   </div>
       
@@ -119,14 +143,17 @@
           src="assets/img/programming-user-code--Streamline-Freehand.svg"
           class="absolute -top-12 right-4"
           loading="lazy"
-          alt="icon user"
+          alt="أيقونة المبرمج والكود"
+          width="80"
+          height="80"
+          decoding="async"
         />
         <div class="container md:m-20 my-8">
           <div
             class="flex md:flex-row flex-col items-center justify-between align-center"
           >
             <div class="text-right relative">
-              <h1>
+              <h1 >
                 من
                 <span class="text-[#5f56d1]"> طفل عادي 
                   <img
@@ -143,10 +170,10 @@
                 </span>
                 بخبرات خارقة!
               </h1>
-              <h2>
+              <p class="text-lg md:text-xl my-4">
                 ابدأ مع نينجاكو رحلة تكنولوجية تغيّر طريقة تفكير ابنك وتنمي
                 مهاراته الرقمية للأبد.
-              </h2>
+              </p>
               <div class="items-star flex flex-col">
                 <span class="flex flex-row gap-4">
                   <img
@@ -174,25 +201,33 @@
                 </span>
               </div>
               <div class="flex flex-row gap-3">
-                <a
+                <a href="#skills"
                   class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+                  aria-label="ابدأ رحلتك الرقمية مع نينجاكو"
                 >
                   أبدأ رحلته الرقمية اليوم
                   <img
                     src="assets/img/ArrowLeft.svg"
                     class="bg-[var(--bg-rw)] rounded-full row-img"
-                    alt=" arrow button"
+                    alt=""
                     loading="lazy"
+                    width="20"
+                    height="20"
+                    decoding="async"
                 /></a>
-                <a
+                <a href="#lists"
                   class="flex flex-row items-center font-bold btn button btn-primary bg-transparent text-[var(--text-color)] btn-sm"
+                  aria-label="اعرض باقات نينجاكو وأسعارها"
                 >
                   سعر باقات نينجاكو
                   <img
                     src="assets/img/ArrowLeft.svg"
                     class="bg-[var(--bg-rw)] rounded-full row-img"
-                    alt=" arrow button"
+                    alt=""
                     loading="lazy"
+                    width="20"
+                    height="20"
+                    decoding="async"
                 /></a>
               </div>
             </div>
@@ -201,8 +236,11 @@
               <img
                 src="assets/img/ninja-boy.webp"
                 class="bg-cover"
-                alt="ninjaco"
+                alt="طفل نينجا - صورة تعليمية"
                 loading="lazy"
+                decoding="async"
+                width="400"
+                height="400"
               />
             </div>
           </div>
@@ -223,8 +261,12 @@
         <img
           src="assets/img/hand.svg"
           class="absolute top-[8rem] right-0"
-          alt="icon hand"
+          alt=""
+          aria-hidden="true"
           loading="lazy"
+          width="120"
+          height="120"
+          decoding="async"
         />
         <div class="container text-center">
           <div
@@ -232,20 +274,35 @@
           >
             <h1 class="text-center md:text-[36px] text-[20px]">
                 <img
-                  class=" absolute right-60 w-35 top-0 hidden md:block"
-                  src="assets/img/reng-y.svg" alt="reng-text-y"
-                    loading="lazy">
+                  class="absolute right-60 w-35 top-0 hidden md:block"
+                  src="assets/img/reng-y.svg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  width="80"
+                  height="80"
+                  decoding="async">
               نينجاكو … أكاديمية تكنولوجية تصنع 
               
                 <img
-                  class=" absolute right-80 -top-20 hidden md:block"
-                  src="assets/img/list-1.svg" alt="list-ninja"
-                    loading="lazy">
+                  class="absolute right-80 -top-20 hidden md:block"
+                  src="assets/img/list-1.svg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                  decoding="async">
               <span>نينجا المستقبل!
                 <img
-                  class=" absolute left-[18rem]  top-[3.5rem] hidden md:block"
-                  src="assets/img/line-prpr.svg" alt="line-text"
-                    loading="lazy">
+                  class="absolute left-[18rem] top-[3.5rem] hidden md:block"
+                  src="assets/img/line-prpr.svg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  width="120"
+                  height="40"
+                  decoding="async">
               </span>
             </h1>
             <p class="md:text-2xl text-base text-center md:w-[869px]">
@@ -264,11 +321,14 @@
                   alt="تعلم البرمجة بالمشاريع"
                   class="block any-img"
                   loading="lazy"
+                  width="200"
+                  height="200"
+                  decoding="async"
                 />
               </div>
-              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+              <h3 class="mt-4 font-bold text-lg">
                 تعلّم بالمشاريع، لا بالمشاهدة
-              </p>
+              </h3>
               <p class="mt-2 text-sm">
                 ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
                 باستخدام أدوات حديثة تناسب عمره.
@@ -281,11 +341,14 @@
                   alt="تعلم البرمجة بالمشاريع"
                   class="block any-img"
                   loading="lazy"
+                  width="200"
+                  height="200"
+                  decoding="async"
                 />
               </div>
-              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+              <h3 class="mt-4 font-bold text-lg">
                 تعلّم بالمشاريع، لا بالمشاهدة
-              </p>
+              </h3>
               <p class="mt-2 text-sm">
                 ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
                 باستخدام أدوات حديثة تناسب عمره.
@@ -298,11 +361,14 @@
                   alt="تعلم البرمجة بالمشاريع"
                   class="block any-img"
                   loading="lazy"
+                  width="200"
+                  height="200"
+                  decoding="async"
                 />
               </div>
-              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+              <h3 class="mt-4 font-bold text-lg">
                 تعلّم بالمشاريع، لا بالمشاهدة
-              </p>
+              </h3>
               <p class="mt-2 text-sm">
                 ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
                 باستخدام أدوات حديثة تناسب عمره.
@@ -313,13 +379,16 @@
                 <img
                   src="assets/img/codeing-about.webp"
                   alt="تعلم البرمجة بالمشاريع"
-                  class="block any-img  "
+                  class="block any-img"
                   loading="lazy"
+                  width="200"
+                  height="200"
+                  decoding="async"
                 />
               </div>
-              <p class="mt-4 font-bold text-lg" role="heading" aria-level="3">
+              <h3 class="mt-4 font-bold text-lg">
                 تعلّم بالمشاريع، لا بالمشاهدة
-              </p>
+              </h3>
               <p class="mt-2 text-sm">
                 ينفّذ طفلك مشاريع حقيقية تحاكي سوق العمل، من الفكرة إلى التطبيق،
                 باستخدام أدوات حديثة تناسب عمره.
@@ -1028,7 +1097,7 @@
       <!-- End Section Change  -->
     </main>
     <!--Start Footer  -->
-    <footer class="bg-white relative overflow-hidden" >
+    <footer class="bg-white relative overflow-hidden" role="contentinfo">
        <div  class=" rounded-4xl bg-[#342E84] md:my-16 my-12 md:mx-14 mx-10 shadow-md">
         <!-- Top Footer -->
         <div
@@ -1078,11 +1147,11 @@
 
             <div class="flex gap-4 justify-center md:justify-end">  
               <!-- icons social media -->
-              <a href=""> <img src="assets/img/wats.webp" alt="صورة ايقون الواتساب"></a>
-              <a href=""> <img src="assets/img/face.webp" alt="صورة ايقون الفيسبوك"></a>
-            <a href=""> <img src="assets/img/inst.webp" alt="صورة ايقون الانستجرام"></a>
-            <a href=""> <img src="assets/img/terg.webp" alt="صورة ايقون تويتر"></a>
-            <a href=""> <img src="assets/img/link.webp" alt="صورة ايقون لینک"></a>
+              <a href="https://www.instagram.com/3adel_sw?igsh=MTY1Zm5hN2VlZjNmeA%3D%3D&utm_source=qr"> <img src="assets/img/wats.webp" alt="صورة ايقون الواتساب"></a>
+              <a href="https://www.instagram.com/3adel_sw?igsh=MTY1Zm5hN2VlZjNmeA%3D%3D&utm_source=qr"> <img src="assets/img/face.webp" alt="صورة ايقون الفيسبوك"></a>
+            <a href="https://www.instagram.com/3adel_sw?igsh=MTY1Zm5hN2VlZjNmeA%3D%3D&utm_source=qr"> <img src="assets/img/inst.webp" alt="صورة ايقون الانستجرام"></a>
+            <a href="https://www.instagram.com/3adel_sw?igsh=MTY1Zm5hN2VlZjNmeA%3D%3D&utm_source=qr"> <img src="assets/img/terg.webp" alt="صورة ايقون تويتر"></a>
+            <a href="https://www.instagram.com/3adel_sw?igsh=MTY1Zm5hN2VlZjNmeA%3D%3D&utm_source=qr"> <img src="assets/img/link.webp" alt="صورة ايقون لینک"></a>
             </div>
           </div>
             </div>
@@ -1107,11 +1176,11 @@
     </footer>
     <!-- End Footer  -->
 
-    <!-- flyonui.js  -->
-    <script src="node_modules/flyonui/flyonui.js"></script>
-    <!-- Javascript  -->
-    <script src="script.js" defer></script>
-    <!-- splide -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- FlyOnUI - defer to avoid render blocking -->
+    <script defer src="node_modules/flyonui/flyonui.js"></script>
+    <!-- Main App JavaScript -->
+    <script defer src="script.js"></script>
+    <!-- Splide Carousel - defer to avoid render blocking -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </body>
 </html>

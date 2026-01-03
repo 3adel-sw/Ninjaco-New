@@ -22,9 +22,10 @@
   }
   /* H1 */
   h1 {
-    @apply md:text-[36px] text-[22px] font-bold;
-    color: #272363;
-    line-height: normal;
+    @apply md:text-[36px] text-[22px] font-bold
+    color: #272363
+    line-height: normal
+    my;
   }
 
   h1 span:first-child {
