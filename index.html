@@ -32,13 +32,9 @@
   </head>
   <body>
     <!-- start Header  -->
-    <header class="w-full py-6">
-      <div
-        class="relative mx-6 flex items-center justify-between rounded-full px-6 py-3"
-        style="
-          background-color: var(--bg-card);
-          border: 1px solid var(--border);
-        "
+    <header class="w-full py-6 relative z-50" x-data="{ open: false } ">
+       <div
+    class="relative mx-6 flex items-center justify-between rounded-full px-6 py-3 bg-[var(--bg-card)] border border-[#342E84]"
       >
         <!-- Logo -->
         <img
@@ -48,44 +44,71 @@
           loading="lazy"
         />
 
-        <!-- Nav -->
+        <!-- Desktop Nav -->
         <nav
           class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block naviltems"
         >
           <ul class="flex gap-6">
             <li>
-              <a href="#">الرئيسية</a>
+              <a href="#hero">عن نينجاكو</a>
             </li>
+          
             <li>
-              <a href="#">الدورات</a>
+              <a href="#about">مساراتنا الدراسية</a>
             </li>
+          
             <li>
-              <a href="#">المسارات</a>
+              <a href="#lists">باقات نينجاكو</a>
             </li>
+          
             <li>
-              <a href="#">تواصل معنا</a>
+              <a href="#change"> الاسئلة الشائعة</a>
             </li>
           </ul>
         </nav>
 
-        <!-- Actions -->
-        <div class="flex items-center gap-3">
-          <!-- Theme Toggle -->
-          <button id="theme-toggle" class="btn btn-outline btn-sm rounded-full">
-            🌙
-          </button>
-          <!-- CTA -->
-          <a
-            class="hidden md:flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm"
-            >انضم الي نينجاكو
-            <img
-              src="assets/img/ArrowLeft.svg"
-              class="bg-[var(--bg-rw)] rounded-full row-img"
-              alt=" arrow button"
-              loading="lazy"
-          /></a>
-        </div>
-      </div>
+        <!-- Actions Desktop -->
+    <div class="hidden md:flex items-center gap-3">
+    <!-- Theme Toggle -->
+      <button id="theme-toggle" class="btn btn-outline btn-sm rounded-full"> 🌙 </button>
+    <a class=" hidden md:flex flex-row items-center btn button btn-primary bg-white text-[var(--text-color)] btn-sm" >
+      انضم الي نينجاكو 
+    <img src="assets/img/ArrowLeft.svg" class="bg-[var(--bg-rw)] rounded-full row-img" alt=" arrow button" loading="lazy" /></a>
+    </div>
+
+
+
+      <!-- Mobile Menu Button -->
+    <button
+      @click="open = !open"
+      class="flex md:hidden items-center justify-center w-10 h-10 rounded-full border"
+    >
+      <span x-text="open ? '❌' : '☰'"></span>
+    </button>
+  </div>
+
+      <!-- Mobile Menu Button -->
+  <div
+    x-show="open"
+    @click.outside="open = false"
+    x-transition:enter="transition-all duration-300 ease-out"
+    x-transition:enter-start="opacity-0 max-h-0"
+    x-transition:enter-end="opacity-100 max-h-96"
+    x-transition:leave="transition-all duration-200 ease-in"
+    x-transition:leave-start="opacity-100 max-h-96"
+    x-transition:leave-end="opacity-0 max-h-0"
+    class="absolute left-0 top-full w-full md:hidden
+           bg-[var(--bg-card)] border-t border-[#342E84]
+           overflow-hidden rounded-4xl shadow-lg font-semibold text-lg" 
+  >
+    <ul class="flex flex-col gap-4 p-6 text-center">
+      <li><a href="#" @click="open = false">الرئيسية</a></li>
+      <li><a href="#" @click="open = false">الدورات</a></li>
+      <li><a href="#" @click="open = false">المسارات</a></li>
+      <li><a href="#" @click="open = false">تواصل معنا</a></li>
+    </ul>
+  </div>
+      
     </header>
 
     <!-- End Header  -->
@@ -105,9 +128,19 @@
             <div class="text-right relative">
               <h1>
                 من
-                <span class="text-[#5f56d1]"> طفل عادي </span>
+                <span class="text-[#5f56d1]"> طفل عادي 
+                  <img
+                  class=" absolute right-16 hidden md:block"
+                  src="assets/img/line-text.svg" alt="line-text.svg"
+                  loading="lazy">
+                </span>
                 … إلى
-                <span class="text-[#FDC31B]">نينجا رقمي </span>
+                <span class="text-[#FDC31B]">نينجا رقمي 
+                    <img
+                  class=" absolute left-50 -top-3 hidden md:block"
+                  src="assets/img/reng.svg" alt="reng-text.svg"
+                  loading="lazy">
+                </span>
                 بخبرات خارقة!
               </h1>
               <h2>
@@ -198,7 +231,22 @@
             class="text-about relative flex flex-col items-center text-center justify-center gap-6"
           >
             <h1 class="text-center md:text-[36px] text-[20px]">
-              نينجاكو … أكاديمية تكنولوجية تصنع <span>نينجا المستقبل!</span>
+                <img
+                  class=" absolute right-60 w-35 top-0 hidden md:block"
+                  src="assets/img/reng-y.svg" alt="reng-text-y"
+                    loading="lazy">
+              نينجاكو … أكاديمية تكنولوجية تصنع 
+              
+                <img
+                  class=" absolute right-80 -top-20 hidden md:block"
+                  src="assets/img/list-1.svg" alt="list-ninja"
+                    loading="lazy">
+              <span>نينجا المستقبل!
+                <img
+                  class=" absolute left-[18rem]  top-[3.5rem] hidden md:block"
+                  src="assets/img/line-prpr.svg" alt="line-text"
+                    loading="lazy">
+              </span>
             </h1>
             <p class="md:text-2xl text-base text-center md:w-[869px]">
               هنا، يكتسب طفلك مهارات البرمجة، التصميم، والإبداع داخل تجربة
@@ -207,9 +255,9 @@
             </p>
           </div>
           <div
-            class="cards-about grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 pt-6 my-12"
+            class="cards-about translate-x-0 translate-y-0 md:translate-[-4rem] md:translate-y-[3rem] grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 pt-6 my-12"
           >
-            <div class="card">
+            <div class="cursor-pointer transition-all transform hover:scale-105 duration-300">
               <div class="img flex items-center justify-center">
                 <img
                   src="assets/img/codeing-about.webp"
@@ -226,7 +274,7 @@
                 باستخدام أدوات حديثة تناسب عمره.
               </p>
             </div>
-            <div class="card">
+            <div class="cursor-pointer transition-all transform hover:scale-105 duration-300">
               <div class="img flex items-center justify-center">
                 <img
                   src="assets/img/codeing-about.webp"
@@ -243,7 +291,7 @@
                 باستخدام أدوات حديثة تناسب عمره.
               </p>
             </div>
-            <div class="card">
+            <div class="cursor-pointer transition-all transform hover:scale-105 duration-300">
               <div class="flex items-center justify-center">
                 <img
                   src="assets/img/codeing-about.webp"
@@ -260,12 +308,12 @@
                 باستخدام أدوات حديثة تناسب عمره.
               </p>
             </div>
-            <div class="card">
-              <div class="img flex items-center justify-center">
+            <div class=" cursor-pointer transition-all transform hover:scale-105">
+              <div class="img flex items-center justify-center ">
                 <img
                   src="assets/img/codeing-about.webp"
                   alt="تعلم البرمجة بالمشاريع"
-                  class="block any-img"
+                  class="block any-img  "
                   loading="lazy"
                 />
               </div>
@@ -289,12 +337,25 @@
       <!-- End Section About  -->
       <!-- Start Section Skills  -->
       <section id="skills" class="skills py-12 md:py-20 bg-white relative">
+      <img class=" absolute left-0 top-65 hidden md:block"
+                  src="assets/img/star-skills.svg" alt="star-skills"
+                    loading="lazy">
         <div class="container">
-          <div class="text-center my-6">
+          <div class="text-center relative my-6">
             <h1 class="text-center md:text-[30px] text-[18px]">
               رحلة نينجاكو تبدأ بالفضول،
-              <span> تتغذى بالشغف، </span>
+                <img
+                  class=" absolute right-80 -top-20 hidden md:block"
+                  src="assets/img/list-2.svg" alt="list-ninja"
+                    loading="lazy">
+              <span> تتغذى بالشغف، 
+                <img
+                  class=" absolute right-[26rem] hidden md:block"
+                  src="assets/img/line-y.svg" alt="line-y-text"
+                    loading="lazy">
+              </span>
               وتنمو إلى مهارة حقيقية ...
+              <img class=" absolute left-56 -top-6 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
             </h1>
             <p class="md:text-2xl text-base my-2">“اختر المستوى المناسب ”</p>
           </div>
@@ -349,6 +410,10 @@
             <div class="text-content text-right gap-4">
               <h1 class="md:text-[30px] text-[18px]">
                 بذرة النينجا بداية تكوين النينجا الرقمي :
+                  <img
+                  class=" absolute right-0 hidden md:block"
+                  src="assets/img/line-y.svg" alt="line-y-text"
+                    loading="lazy">
               </h1>
               <p class="md:text-lg text-base font-semibold my-2">
                 هذه المرحلة لطلاب الصف الأول حتى الثالث الابتدائي .
@@ -449,17 +514,24 @@
         />
         <div class="container md:m-20 my-8">
           <div class="text-center relative md:py20">
-            <h1 class="text-center font-bold md:text-[30px] text-[18px]">
+              <img
+                  class=" absolute right-30 -top-15 hidden md:block"
+                  src="assets/img/list-3.svg" alt="list-ninja"
+                    loading="lazy">
+            <h1 class="text-center py-2 font-bold md:text-[30px] text-[18px]">
               في نينجاكو، التعلم لا يتوقف عند النظر, بل يتحول إلى مشاريع حقيقية
               يفتخر بها أطفالنا
+                <img class=" absolute right-[24rem] hidden md:block" src="assets/img/line-y.svg" alt="line-y-text" loading="lazy">
+                <img class=" absolute left-[20rem] hidden md:block" src="assets/img/line-y-kar.svg" alt="line-y-text" loading="lazy">
+                <img class=" absolute left-22 -top-3 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
             </h1>
-            <p class="text-base md:text-2xl my-4">
+            <p class="text-base  md:text-2xl my-4">
               تعرف على أبرز إنجازات أبطال نينجاكو… أطفال بدأوا من الصفر ووصلوا
               للاحتراف.
             </p>
           </div>
           <!-- Cards Grid -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2 ">
             <!-- Card 1 -->
             <div class="rounded-2xl relative z-30 shadow text-center">
               <img
@@ -518,10 +590,14 @@
           <div
             class="text-features p-6 md:py-20 py-6 relative flex flex-col items-center text-center justify-center gap-6"
           >
-            <h1 class="text-center md:text-[29px] text-[18px]">
+          <img class=" absolute right-30 top-0 hidden md:block" src="assets/img/list-4.svg" alt="list-ninja" loading="lazy">
+            <h1 class="text-center md:text-[29px] text-[18px]"> 
               كل مدرب في نينجاكو مختار بعناية،
-              <span>مدرب على أعلى مستوى</span>
+              <span class="text-[#FDC31B]">مدرب على أعلى مستوى
+                <img class=" left-[34rem] bottom-[3.2rem] w-72 absolute hidden md:block" src="assets/img/line-prpr.svg" alt="line-text" loading="lazy">
+              </span>
               ، ليضمن لطفلك تجربة تعليمية متميزة وآمنة.
+                <img class=" absolute left-0 top-15 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
             </h1>
           </div>
           <!-- Icons Grid -->
@@ -603,25 +679,32 @@
       </section>
       <!-- End Section features  -->
       <!-- Start Section FeedBack  -->
-      <section class="feedBack relative bg-[#F3F2FB]">
+      <section class="feedBack relative bg-[#F3F2FB] overflow-hidden-x">
+            <img class=" absolute left-5 top-0 hidden md:block" src="assets/img/side-bottom.svg" alt="tag-text" loading="lazy">
+          <img class=" absolute left-0 top-0 hidden md:block" src="assets/img/side-top.svg" alt="tag-text" loading="lazy">
+          <img class=" absolute left-15 top-20 hidden md:block" src="assets/img/star-sm.svg" alt="tag-text" loading="lazy">
+          <img class=" absolute left-10 bottom-30 hidden md:block" src="assets/img/star-smx.svg" alt="tag-text" loading="lazy">
+          <img class=" absolute left-20 bottom-10 hidden md:block" src="assets/img/star-m.svg" alt="tag-text" loading="lazy">
         <img
           src="assets/img/top-feedback.webp"
           class="absolute w-full top-[-3rem] md:block hidden right-0"
           alt="background Top"
         />
-        <div class="container">
+        <div class="container transform md:-translate-x-12 translate-x-0 ">
+      
           <div
             class="text-features p-6 relative flex flex-col items-center text-center justify-center gap-6"
           >
+          <img class=" absolute right-30 -top-10 hidden md:block" src="assets/img/list-5.svg" alt="list-ninja" loading="lazy">
             <h1 class="text-center md:text-[29px] text-[18px]">
-              كل مدرب في نينجاكو مختار بعناية،
-              <span>مدرب على أعلى مستوى</span>
-              ، ليضمن لطفلك تجربة تعليمية متميزة وآمنة.
+              استمع لتجارب من خاضوا رحلة نينجاكو، واكتشف كيف ساعدتهم على تحقيق أهدافهم بالمتعّة والتعلم.
+              <img class=" absolute left-5 top-2 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
+              <img class=" absolute left-70 w-72 -bottom-2 hidden md:block" src="assets/img/line-y.svg" alt="line-text" loading="lazy">
             </h1>
           </div>
           <!-- Cards Wrapper Video  -->
           <div
-            class="flex px-4 gap-4 hidden md:block overflow-x-auto scroll-smooth md:grid md:grid-cols-3 md:overflow-visible no-scrollbar"
+            class="flex feedback-wrapper px-4 gap-4 hidden md:block overflow-x-auto scroll-smooth md:grid md:grid-cols-3 md:overflow-visible no-scrollbar"
             id="cards-wrapper-video-pc"
           >
             <!-- Left Card -->
@@ -700,24 +783,334 @@
                 loading="lazy"
             /></a>
           </div>
+          <img class=" absolute -right-2 bottom-0 hidden md:block" src="assets/img/star-bag.svg" alt="star-sm" loading="lazy">
         </div>
+        
       </section>
       <!-- End Section FeedBack  -->
       <!-- Start Section Lists  -->
-      <section class="lists"></section>
+      <section id="lists" class="lists bg-white relative overflow-hidden">
+        
+        <img class=" absolute right-30 top-35 hidden md:block" src="assets/img/star-sm.svg" alt="star-sm" loading="lazy">
+        <img class=" absolute left-5 top-15 hidden md:block" src="assets/img/star-sm.svg" alt="star-sm" loading="lazy">
+
+        <div class="container md:m-20 my-8">
+          <div class="text-center relative md:py20 px-3">
+            <img class=" absolute right-50 -top-15 hidden md:block" src="assets/img/list-6.svg" alt="list-ninja" loading="lazy">
+            <h1 class="text-center font-bold md:text-[32px] text-[22px]">
+              رحلة نينجاكو… اختر الباقة التي تصنع مستقبل طفلك الرقمي
+            <img class=" absolute left-58 -top-3 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
+            </h1>
+          </div>
+          <!-- Cards -->
+          <div
+            class="cards-lists grid grid-cols-1 md:grid-cols-2 py-12 md:px-28 px-8 gap-20 items-stretch m-4"
+          >
+            <!-- Card Right -->
+            <div
+              class="bg-transparent card-list relative border-2 border-[#6C64CB] rounded-3xl right overflow-hidden flex flex-col px-12 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <h2 class="text-3xl font-bold text-[#2F2977] mb-4 text-start">
+                🎓 نظام السنة الكاملة
+              </h2>
+
+              <div class="text-start mb-6 border-b pb-4">
+                <p class="text-3xl text-[#2F2977] font-bold py-3">
+                  15,000 <span class="text-sm">جنيه</span>
+                </p>
+                <p class="text-sm text-[#45556C]">
+                  <del>23,000 جنيه</del> • فردي
+                </p>
+
+                <p class="text-3xl font-bold text-[#2F2977]">
+                  12,000 <span class="text-sm">جنيه</span>
+                </p>
+                <p class="text-sm text-[#45556C]">
+                  <del>20,000 جنيه</del> • مجموعة (3) أفراد
+                </p>
+              </div>
+
+              <ul
+                class="mb-6 space-y-2 text-lg text-[#2F2977] writing-mode-vertical-lr transform rotate-0"
+              >
+                <li class="mb-2">● المدة : 12 شهر</li>
+                <li class="mb-2">● عدد المحاضرات : 40 محاضرة</li>
+              </ul>
+
+              <h3
+                class="text-lg font-bold text-[#2F2977] mb-4 writing-mode-vertical-lr"
+              >
+                يشمل:
+              </h3>
+
+              <ul
+                class="space-y-3 text-lg text-[#45556C] writing-mode-vertical-lr"
+              >
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  3 ورشات سنويًا (1.5–3 ساعات – وقد تمتد في حالة الأوفلاين)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  جلسات Pitching دورية
+                </li>
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  وصول كامل للتسجيلات والمحتوى
+                </li>
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  إمكانية التجميد (Freeze) حتى 4 محاضرات
+                </li>
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  واجبات وتقييم وتتبع شامل
+                </li>
+                <li>
+                  <i class="fa-solid fa-check mt-1 text-[#314158]"></i>
+                  شهادات إتمام البرنامج
+                </li>
+              </ul>
+
+              <!-- Botton -->
+              <div class="flex justify-center py-8 items-center align-center">
+                <a
+                  class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+                >
+                  أبدأ رحلته الرقمية اليوم
+                  <img
+                    src="assets/img/ArrowLeft.svg"
+                    class="bg-[var(--bg-rw)] rounded-full row-img"
+                    alt=" arrow button"
+                    loading="lazy"
+                /></a>
+              </div>
+            </div>
+
+            <!-- Card Left -->
+            <div
+              class="bg-transparent relative border-2 border-[#6C64CB] rounded-3xl right overflow-hidden flex flex-col px-12 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <h2 class="text-3xl font-bold text-[#2F2977] mb-4 text-start">
+                📘 نظام التيرم
+              </h2>
+
+              <div class="text-start mb-6 border-b border-gray-400 pb-4">
+                <p class="text-3xl text-[#2F2977] font-bold py-3">
+                  5,800 <span class="text-sm">جنيه</span>
+                </p>
+                <p class="text-sm text-[#62748E]">فردي</p>
+
+                <p class="text-3xl font-bold text-[#2F2977]">
+                  4,800 <span class="text-sm">جنيه</span>
+                </p>
+                <p class="text-sm text-[#62748E]">مجموعة (3) أفراد</p>
+              </div>
+
+              <ul class="mb-6 space-y-2 text-lg text-[#2F2977] text-start">
+                <li>● المدة : 3 شهور</li>
+                <li>● عدد المحاضرات : 12–15 محاضرة</li>
+              </ul>
+
+              <h3 class="text-lg font-bold text-[#2F2977] mb-4">يشمل:</h3>
+
+              <ul class="space-y-3 text-lg text-[#45556C]">
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check mt-1 text-[#45556C]"></i>
+                  تسجيلات كاملة
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check mt-1 text-[#45556C]"></i>
+                  ورشات عبر الإنترنت فقط
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check mt-1 text-[#45556C]"></i>
+                  واجبات + تتبع للتقدم
+                </li>
+
+                <li class="text-lg font-bold text-[#2B1E63] mt-4">لا يشمل:</li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-xmark mt-1 text-[#90A1B9]"></i>
+                  التجميد (Freeze)
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-xmark mt-1 text-[#90A1B9]"></i>
+                  Pitching
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-xmark mt-1 text-[#90A1B9]"></i>
+                  شهادة
+                </li>
+              </ul>
+
+              <!-- Botton -->
+              <div class="flex justify-center py-6 items-center align-center">
+                <a
+                  class="flex flex-row items-center btn button btn-primary button-pr btn-sm"
+                >
+                  أبدأ رحلته الرقمية اليوم
+                  <img
+                    src="assets/img/ArrowLeft.svg"
+                    class="bg-[var(--bg-rw)] rounded-full row-img"
+                    alt=" arrow button"
+                    loading="lazy"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- End Section Lists  -->
       <!-- Start Section Change  -->
-      <section class="change"></section>
+      <section id="change" class="change bg-[#F3F2FB] relative overflow-hidden">
+        <div class="container md:m-20 my-8">
+          <div class="text-center relative md:py20 px-3">
+            <img class=" absolute right-60 -top-15 hidden md:block" src="assets/img/list-7.svg" alt="list-ninja" loading="lazy">
+            <h1 class="text-center font-bold md:text-[32px] text-[22px]">
+              كل ما يدور في بالك قبل أن يبدأ طفلك رحلته كنـينجا رقمي
+          <img class=" absolute left-60 -top-4 hidden md:block" src="assets/img/tag-top-text.svg" alt="tag-text" loading="lazy">
+            </h1>
+          </div>
+           <!-- items -->
+        <div class=" items grid md:grid-cols-2 grid-cols-1 my-8 px-2 md:px-6 gap-4">
+          <!-- item 1 -->
+          <div>
+            <p>
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span
+            >
+          </div>
+          <!-- item 2 -->
+          <div >
+            <p >
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span>
+          </div>
+          <!-- item 3 -->
+          <div>
+            <p >
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span
+            >
+          </div>
+          <!-- item 4 -->
+          <div>
+            <p >
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span>
+          </div>
+          <!-- item 5 -->
+          <div>
+            <p>
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span
+            >
+          </div>
+          <!-- item 6 -->
+          <div>
+            <p>
+          ما الفرق بين أن يتعلّم الطفل البرمجة في هذا العمر، أو يؤجّلها لمرحلة لاحقة؟
+            </p>
+            <span>+</span>
+          </div>
+        </div>
+      </section>
       <!-- End Section Change  -->
     </main>
     <!--Start Footer  -->
-    <footer></footer>
+    <footer class="bg-white relative overflow-hidden" >
+       <div  class=" rounded-4xl bg-[#342E84] md:my-16 my-12 md:mx-14 mx-10 shadow-md">
+        <!-- Top Footer -->
+        <div
+          class="flex justify-center items-center mb-10 gap-6 md:gap-16 flex-wrap md:flex-nowrap"
+        >
+        <div class="flex flex-col md:flex-row justify-center items-center gap-1 md:gap-30">
+          <!-- العمود 2 (تواصل معنا) -->
+          <div class="text-xs md:text-lg md:text-right py-4 md:order-2 order-1">
+            <h3 class="mb-4 font-semibold text-lg text-white text-center">
+              تواصل معنا
+            </h3>
+            <ul class="space-y-2 text-lg  text-white  flex flex-col">
+              <li class=" cursor-pointer opacity-70 hover:opacity-100">+20123456789</li>
+              <li class="cursor-pointer opacity-70 hover:opacity-100">البريد الالكتروني :</li>
+              <li class="cursor-pointer opacity-70 hover:opacity-100">info@ninjaco.com</li>
+            </ul>
+          </div>
+
+          <!-- العمود 1 (الأقسام) -->
+          <div class=" md:order-2 order-1 mx-12 py-4 px-4">
+            <h3 class="mb-4 font-semibold text-lg text-white text-center">
+              الأقسام الرئيسية
+            </h3>
+            <ul
+              class=" space-y-2 text-lg sm:text-sm text-white flex flex-col cursor-pointer"
+            >
+              <li class="cursor-pointer opacity-70 hover:opacity-100">
+                عن تعرّف على نينجاكو
+              </li>
+              <li class="cursor-pointer opacity-70 hover:opacity-100">
+                أكتشف مسارنا الدراسية
+              </li>
+              <li class="cursor-pointer opacity-70 hover:opacity-100">
+                باقات نينجاكو التعليمية
+              </li>
+              <li class="cursor-pointer opacity-70 hover:opacity-100">الاسئلة الشائعة</li>
+            </ul>
+          </div>
+
+          <!--  social media -->
+          <div
+            class="social-media  col-span-2 order-3 flex flex-col items-center md:col-span-1 md:order-2 order-1 md:items-center"
+          >
+            <h3 class="mb-4 font-semibold text-lg text-white md:text-right text-center">
+              مواقع التواصل الاجتماعي
+            </h3>
+
+            <div class="flex gap-4 justify-center md:justify-end">  
+              <!-- icons social media -->
+              <a href=""> <img src="assets/img/wats.webp" alt="صورة ايقون الواتساب"></a>
+              <a href=""> <img src="assets/img/face.webp" alt="صورة ايقون الفيسبوك"></a>
+            <a href=""> <img src="assets/img/inst.webp" alt="صورة ايقون الانستجرام"></a>
+            <a href=""> <img src="assets/img/terg.webp" alt="صورة ايقون تويتر"></a>
+            <a href=""> <img src="assets/img/link.webp" alt="صورة ايقون لینک"></a>
+            </div>
+          </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-Footer flex flex-col items-center justify-center">
+          <img src="assets/img/logo-footer.webp" alt="logo-Footer" />
+          <p class="text-xs py-4  md:text-base text-center text-white">
+            رحلة طفلك من الفضول إلى مهارة رقمية حقيقية
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider h-px w-full bg-white/20"></div>
+
+        <div class=" md:my-6 my-2 py-3 md:py-6 px-1  text-center md:text-lg text-[9.5px] text-white/70">
+          © 2025 اسم الموقع. جميع الحقوق محفوظة. | سياسة الخصوصية | الشروط
+          والأحكام
+        </div>
+        </div>
+    </footer>
     <!-- End Footer  -->
 
     <!-- flyonui.js  -->
     <script src="node_modules/flyonui/flyonui.js"></script>
     <!-- Javascript  -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </body>

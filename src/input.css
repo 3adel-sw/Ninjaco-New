@@ -15,8 +15,8 @@
       rounded-lg
       p-2
       items-center
-      text-[21px]
-      font-normal
+      text-[19px]
+      font-semibold
       mx-3
       text-[var(--text-color)];
   }
@@ -53,6 +53,16 @@
     p-2 md:p-6 flex flex-col items-center
     cursor-pointer gap-2 transition-all 
     duration-300 hover:-translate-y-2 hover:shadow-lg;
+  }
+
+  .items div {
+    @apply flex  items-center justify-between bg-white rounded-xl border border-[#4942A3] py-4 text-right;
+  }
+  .items div p {
+    @apply text-[#2B1E63] md:text-lg px-2 text-[12px]  text-center;
+  }
+  .items div span {
+    @apply any-img flex h-7 w-7 cursor-pointer items-center justify-center text-2xl font-medium text-[#4942A3];
   }
 }
 

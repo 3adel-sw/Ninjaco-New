@@ -8,7 +8,9 @@ body {
   padding: 0;
   color: var(--text-color);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --text-color: #342e84;
   --primary: rgb(88, 40, 244);
@@ -36,14 +38,13 @@ body {
   display: block;
   transform: translateX(-1rem);
 }
-.card {
+.card-about .img img {
   background: transparent;
   color: var(--text-color);
-  border: 1px solid var(--border);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-.card:hover {
+.card-about .img img:hover {
   transform: translateY(2%);
 }
 
@@ -60,4 +61,37 @@ body {
 }
 .videos .container .grid img:hover {
   transform: translateY(2%);
+}
+
+.feedback-wrapper div img {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.feedback-wrapper div img:hover {
+  transform: translateY(2%);
+}
+.social-media div img {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  opacity: 70;
+}
+.social-media div img:hover {
+  transform: translateY(4%);
+  opacity: 100;
+}
+
+.card-list.right::after {
+  content: "موصي به ";
+  width: 194px;
+  height: 98px;
+  background: #6c64cb;
+  position: absolute;
+  top: -24px;
+  left: -68px;
+  transform: rotate(318deg);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: white;
 }
