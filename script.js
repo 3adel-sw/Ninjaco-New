@@ -1,16 +1,22 @@
-// Mode
+// mode
 const root = document.documentElement;
 const toggle = document.getElementById("theme-toggle");
 
+// Load saved theme
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") root.classList.add("dark");
+if (savedTheme === "dark") {
+  root.classList.add("dark");
+  toggle.textContent = "☀️";
+} else {
+  toggle.textContent = "🌙";
+}
 
+// Toggle theme
 toggle.addEventListener("click", () => {
-  root.classList.toggle("dark");
-  localStorage.setItem(
-    "theme",
-    root.classList.contains("dark") ? "dark" : "light"
-  );
+  const isDark = root.classList.toggle("dark");
+
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  toggle.textContent = isDark ? "☀️" : "🌙";
 });
 
 // Splide
